@@ -254,9 +254,9 @@ def shortcuts():
     """
     Return the list of available shortcuts
     """
+    tpl = '[{}: {}, {}, {}]'
     print('Available shortcuts: [shortcut: null, singular, plural]')
     for r in regpl:
-        print(''.join(('[', r, ': ', regpl[r][0], ', ', regpl[r][1], ', ',
-              regpl[r][2], ']')))
-        print(''.join(('[', r.upper(), ': ', regpl[r][0].upper(), ', ',
-              regpl[r][1].upper(), ', ', regpl[r][2].upper(), ']')))
+        print(tpl.format(r, regpl[r][0], regpl[r][1], regpl[r][2]))
+        print(tpl.format(r.upper(), regpl[r][0].upper(), regpl[r][1].upper(),
+                         regpl[r][2].upper()))
