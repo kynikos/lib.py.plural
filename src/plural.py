@@ -150,7 +150,7 @@ def set(*args, **kwargs):
     Leaf, ccc<x>ddd
     
     Usage (part 5: special characters in str.format):
-    When using plural.set as an unpacked dictionary, you are NOT limited to
+    When using plural.set as an unpacked dictionary, you are _not_ limited to
     Python's variable characters (letters, numbers and _): you can use almost
     whatever character you want, with some exceptions:
     '!', '[', '{', '}', '.', ':'
@@ -162,10 +162,10 @@ def set(*args, **kwargs):
     separator will be used for separating the elements in strings.
     
     Example:
-    >>> print('{P0|/&+-|°#ç_|]§;%|$£}'.format(**plural.set(
-                                            (3, '/&+-|°#ç_|]§;%|$£')
+    >>> print('{P0|/+-|#&_|];%|$}'.format(**plural.set(
+                                            (3, '/+-|#&_|];%|$')
                                         )))
-    ]§;%|$£
+    ];%|$
     
     Usage (part 6: mixing plural.set with other str.format variables):
     Of course you can mix plural.set variables with normal str.format
