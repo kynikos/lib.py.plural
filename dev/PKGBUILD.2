@@ -1,0 +1,17 @@
+# Maintainer: Dario Giovannetti <dev at dariogiovannetti dot com>
+
+pkgname='python2-plural'
+pkgver='1.0'
+pkgrel=1
+pkgdesc="Python2 function that returns the needed variation of a word."
+arch=('any')
+url="https://github.com/kynikos/plural"
+license=('GPL3')
+depends=('python2')
+source=("http://cloud.github.com/downloads/kynikos/plural/$pkgname-$pkgver.tar.bz2")
+md5sums=('29b86207ce011cbf85dd19ac3b44a4e1')
+
+package() {
+    cd "$srcdir/$pkgname-$pkgver"
+    python2 setup.py install --prefix="/usr" --root="$pkgdir" --optimize=1
+}

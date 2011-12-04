@@ -21,7 +21,7 @@ Return a dictionary with the needed variation of a word.
 @copyright: Copyright (C) 2011 Dario Giovannetti <dev@dariogiovannetti.com>
 @license: GPLv3
 @version: 1.0
-@date: 2011-11-27
+@date: 2011-12-03
 """
 
 # Shortcuts (predefined null/singular/plural tuples)
