@@ -1,5 +1,5 @@
 # Return a dictionary with the needed variation of a word.
-# Copyright (C) 2011 Dario Giovannetti <dev@dariogiovannetti.com>
+# Copyright (C) 2011 Dario Giovannetti <dev@dariogiovannetti.net>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@ setup(name='plural',
       description='Function to get a dictionary with the needed variation of '
                   'a word.',
       author='Dario Giovannetti',
-      author_email='dev@dariogiovannetti.com',
+      author_email='dev@dariogiovannetti.net',
       url='https://github.com/kynikos/plural',
       license='GPLv3',
       packages=['plural'])

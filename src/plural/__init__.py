@@ -1,5 +1,5 @@
 # Return a dictionary with the needed variation of a word.
-# Copyright (C) 2011 Dario Giovannetti <dev@dariogiovannetti.com>
+# Copyright (C) 2011 Dario Giovannetti <dev@dariogiovannetti.net>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 Return a dictionary with the needed variation of a word.
 
 @author: Dario Giovannetti
-@copyright: Copyright (C) 2011 Dario Giovannetti <dev@dariogiovannetti.com>
+@copyright: Copyright (C) 2011 Dario Giovannetti <dev@dariogiovannetti.net>
 @license: GPLv3
 @version: 1.0
 @date: 2011-12-03
