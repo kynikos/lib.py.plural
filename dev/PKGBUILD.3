@@ -1,17 +1,17 @@
 # Maintainer: Dario Giovannetti <dev at dariogiovannetti dot net>
 
 pkgname='python-plural'
-pkgver='1.0'
-pkgrel=2
+pkgver='1.0.0'
+pkgrel=1
 pkgdesc="Python function that returns the needed variation of a word."
 arch=('any')
 url="https://github.com/kynikos/plural"
 license=('GPL3')
 depends=('python')
-source=("http://www.dariogiovannetti.net/files/$pkgname-$pkgver.tar.gz")
-md5sums=('c528673d41954ad2869656ca7a202d7f')
+source=("http://downloads.sourceforge.net/project/kynikos/arch/$pkgname-$pkgver.tar.bz2")
+sha256sums=('5044d281ab0d913cd03a84c000e14c486f95c363c9f58d241aa5637c691f4c16')
 
 package() {
     cd "$srcdir/$pkgname-$pkgver"
-    python setup.py install --prefix="/usr" --root="$pkgdir" --optimize=1
+    python setup.py install --root="$pkgdir" --optimize=1
 }

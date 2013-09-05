@@ -1,5 +1,5 @@
 # Return a dictionary with the needed variation of a word.
-# Copyright (C) 2011 Dario Giovannetti <dev@dariogiovannetti.net>
+# Copyright (C) 2011-2013 Dario Giovannetti <dev@dariogiovannetti.net>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 from distutils.core import setup
 
 setup(name='plural',
-      version='1.0',
+      version='1.0.0',
       description='Function to get a dictionary with the needed variation of '
                   'a word.',
       author='Dario Giovannetti',
