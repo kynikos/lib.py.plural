@@ -1,5 +1,5 @@
 # Return a dictionary with the needed variation of a word.
-# Copyright (C) 2011-2013 Dario Giovannetti <dev@dariogiovannetti.net>
+# Copyright (C) 2011-2014 Dario Giovannetti <dev@dariogiovannetti.net>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,11 +17,8 @@
 """
 Return a dictionary with the needed variation of a word.
 
-@author: Dario Giovannetti
-@copyright: Copyright (C) 2011-2013 Dario Giovannetti <dev@dariogiovannetti.net>
+@author: Dario Giovannetti <dev@dariogiovannetti.net>
 @license: GPLv3
-@version: 1.0.0
-@date: 2013-09-05
 """
 
 # Shortcuts (predefined null/singular/plural tuples)
@@ -44,15 +41,15 @@ def set(*args, **kwargs):
     """
     Return a dictionary with the needed form of a word (usually singular or
     plural).
-    
+
     This function is best used as an unpacked dictionary inside str.format(),
     though also making references to the keys in the dictionary is possible
     (the latter method will be treated in the last part of this guide).
-    
+
     Preview example:
     >>> print('Word{P0s}'.format(**plural.set((2,))))
     Words
-    
+
     Usage (part1):
     plural.set(*args [, sep='|'])
     Where each element of *args is a tuple in which the first element is the
@@ -61,12 +58,12 @@ def set(*args, **kwargs):
     (test [, string , string, ...])
     Finally, sep (optional) is the string used to recognize the different forms
     in a string: default separator is '|'.
-    
+
     Valid examples of an element of *args:
     (2,)
     (0, 'leaf|leaves')
     ('testvalue', 'man|men', 'null|single|multi')
-    
+
     Return:
     This function returns a dictionary in the form:
     {
@@ -75,7 +72,7 @@ def set(*args, **kwargs):
         ...
     }
     Where N is the index of the tuple in *args
-    
+
     Usage (part 2):
     'string' (string in a tuple of *args)
     '{PN|string}' (str.format variable)
@@ -90,18 +87,18 @@ def set(*args, **kwargs):
     This string will return 'null' if test value equals 0 (integer), it will
     return 'single' if test value equals 1 (integer), otherwise it will return
     'multi'.
-    
+
     Examples:
     >>> print('{P0|Fish}'.format(**plural.set((4, 'Fish'))))
     Fish
-    
+
     >>> print('{P0|Leaf|Leaves}'.format(**plural.set(('none', 'Leaf|Leaves'))))
     Leaves
-    
+
     >>> print('{P0|null|single|multi}'.format(**plural.set((0,
                                                     'null|single|multi'))))
     null
-    
+
     Usage (part 3: Shortcuts):
     It's not always necessary to use strings. Most of the time, for regular
     plurals formation you will just want to use shortcuts: for every tuple in
@@ -116,14 +113,14 @@ def set(*args, **kwargs):
     The list of all available shortcuts can be retrieved with
     plural.shortcuts().
     Note that shortcuts do NOT use a separator.
-    
+
     Examples:
     >>> print('Word{P0s}'.format(**plural.set((2,))))
     Words
-    
+
     >>> print('DAY{P0S}, cherr{P1ies}'.format(**plural.set((7,), (1,))))
     DAYS, cherry
-    
+
     >>> print('{P0|This|These} {P0is} {P0|a |}word{P0s}.'.format(
                                             **plural.set((
                                                 3,
@@ -131,7 +128,7 @@ def set(*args, **kwargs):
                                                 'a |'
                                             ))))
     These are words.
-    
+
     Usage (part 4: Separator):
     The default separator is '|', but you can specify another string using the
     sep key after all *args' tuples:
@@ -139,7 +136,7 @@ def set(*args, **kwargs):
     Remember that the first 2 occurrences (3 in str.format variables) of
     separator will be used for separating the elements in strings: the
     following occurrences will be considered part of the 3rd (plural) word.
-    
+
     Example:
     >>> print('{P0<x>Leaf<x>Leaves}, {P1<x>aaa<x>bbb<x>ccc<x>ddd}'.format(
                                             **plural.set(
@@ -148,7 +145,7 @@ def set(*args, **kwargs):
                                                 sep='<x>',
                                             )))
     Leaf, ccc<x>ddd
-    
+
     Usage (part 5: special characters in str.format):
     When using plural.set as an unpacked dictionary, you are _not_ limited to
     Python's variable characters (letters, numbers and _): you can use almost
@@ -160,18 +157,18 @@ def set(*args, **kwargs):
     outside str.format.
     Always remember that the first 2 occurrences (3 in str.format variables) of
     separator will be used for separating the elements in strings.
-    
+
     Example:
     >>> print('{P0|/+-|#&_|];%|$}'.format(**plural.set(
                                             (3, '/+-|#&_|];%|$')
                                         )))
     ];%|$
-    
+
     Usage (part 6: mixing plural.set with other str.format variables):
     Of course you can mix plural.set variables with normal str.format
     variables; just remember to unpack plural.set at the end of format
     arguments.
-    
+
     Example:
     >>> birds=2
     >>> stones=1
@@ -184,7 +181,7 @@ def set(*args, **kwargs):
                                             )
                                         ))
     Kill 2 birds with 1 stone.
-    
+
     Usage (part 7: not unpacking the dictionary):
     There is an alternative useful way of using this function in str.format:
     just make references to the dictionary keys instead of bare arguments.
@@ -197,7 +194,7 @@ def set(*args, **kwargs):
     outside str.format.
     Still remember that the first 2 occurrences (3 in str.format variables) of
     separator will be used for separating the elements in strings.
-    
+
     Example:
     >>> birds=2
     >>> stones=1
@@ -218,23 +215,23 @@ def set(*args, **kwargs):
         sep = kwargs['sep']
     else:
         sep = '|'
-    
+
     result = {}
-    
+
     for n, v in enumerate(args):
         n = str(n)
-        
+
         # Tell which one of null/singular/plural is needed
         form = v[0]
         if form not in (0, 1):
             form = 2
-        
+
         # Create the predefined shortcuts for this variable (also their
         # respective capitalized versions)
         for r in regpl:
             result['P' + n + r] = regpl[r][form]
             result['P' + n + r.upper()] = regpl[r][form].upper()
-        
+
         for p in v[1:]:
             # Create the key with the needed form for this word
             s = p.split(sep, 2)
@@ -246,7 +243,7 @@ def set(*args, **kwargs):
                 s.append(s[0])
                 s.append(s[0])
             result['P' + n + sep + p] = s[form]
-    
+
     return(result)
 
 
