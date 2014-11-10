@@ -24,4 +24,4 @@ setup(name='plural',
       author_email='dev@dariogiovannetti.net',
       url='https://github.com/kynikos/plural',
       license='GPLv3',
-      packages=['plural'])
+      packages=['plural', ])
