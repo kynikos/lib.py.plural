@@ -22,6 +22,6 @@ setup(name='plural',
                   'a word.',
       author='Dario Giovannetti',
       author_email='dev@dariogiovannetti.net',
-      url='https://github.com/kynikos/plural',
+      url='https://github.com/kynikos/lib.py.plural',
       license='GPLv3',
       packages=['plural', ])
