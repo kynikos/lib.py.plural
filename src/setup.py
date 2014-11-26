@@ -17,7 +17,7 @@
 from distutils.core import setup
 
 setup(name='plural',
-      version='1.0.0',
+      version='1.0.1',
       description='Function to get a dictionary with the needed variation of '
                   'a word.',
       author='Dario Giovannetti',
